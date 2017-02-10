@@ -9,8 +9,15 @@ let rec reverse lst acc =
   | [] -> acc
   | head::tail -> reverse tail (head::acc)
 
+let reverse2 lst =
+  let rec aux acc = function
+    | [] -> acc
+    | head::tail -> aux tail (head::acc)
+  in
+  aux lst [];;
+
 let f lst = 
-  reverse lst [];;
+  reverse2 lst;;
 
 let () = 
   let arr = read_lines() in
